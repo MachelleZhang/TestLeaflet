@@ -7,9 +7,12 @@ let markers = null; //聚合点数组
 export default {
     //添加一个标注
     addRandomMarker() {
-        //图片路径需要注意，放在public目录下的
+        /*
+         *  图片路径需要注意，放在public目录下的文件会直接拷贝过去，所以路径是：'../img/icon-location-blue.png'
+         *  如果是放在src下的文件，使用时要用require('@/assets/img/icon-location-red.png')获取资源
+         */
         let iconRed = L.icon({
-            iconUrl: '../img/icon-location-red.png',
+            iconUrl: require('@/assets/img/icon-location-red.png'),
             iconSize: [35, 35]
         });
 
@@ -33,7 +36,7 @@ export default {
     //添加能聚合的点，这个功能使用的是leaflet的插件[leaflet.markercluster]
     addMarkerCluster() {
         let iconBlue = L.icon({
-            iconUrl: '../img/icon-location-blue.png',
+            iconUrl: require('@/assets/img/icon-location-blue.png'),
             iconSize: [35, 35]
         });
 
